@@ -1,0 +1,34 @@
+.add-mentor-page {
+    padding: 30px;
+    background: #f8f9fc;
+    min-height: calc(100vh - 80px);
+    font-family: "Poppins", sans-serif;
+}
+
+.add-mentor-page h1 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.mentor-container {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+    .add-mentor-page {
+        padding: 20px;
+    }
+
+    .add-mentor-page h1 {
+        font-size: 24px;
+    }
+
+    .mentor-container {
+        padding: 20px;
+    }
+}

@@ -1,26 +1,85 @@
+import "./ViewModal.css";
+
 function ViewModal({ open, beneficiary, onClose }) {
   if (!open || !beneficiary) return null;
 
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div
+      className="modal-overlay"
+      onClick={onClose}
+    >
+      <div
+        className="view-modal"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h1 className="modal-title">
+          Women For Girls NGO
+        </h1>
 
-        <h2>Beneficiary Profile</h2>
+        <p className="modal-subtitle">
+          Beneficiary Profile
+        </p>
 
-        <p><strong>Name:</strong> {beneficiary.name}</p>
-        <p><strong>Mentor:</strong> {beneficiary.mentor}</p>
-        <p><strong>Email:</strong> {beneficiary.email}</p>
-        <p><strong>Age:</strong> {beneficiary.age}</p>
-        <p><strong>Address:</strong> {beneficiary.address}</p>
-        <p><strong>Mobile:</strong> {beneficiary.mobile}</p>
-        <p><strong>Education:</strong> {beneficiary.education}</p>
-        <p><strong>Help Provided:</strong> {beneficiary.help}</p>
-        <p><strong>Status:</strong> {beneficiary.status}</p>
+        <div className="profile-grid">
 
-        <div className="modal-buttons">
-          <button className="cancel" onClick={onClose}>
+          <div className="profile-item">
+            <label>Beneficiary Name</label>
+            <p>{beneficiary.name}</p>
+          </div>
+
+          <div className="profile-item">
+            <label>Mentor Name</label>
+            <p>{beneficiary.mentor}</p>
+          </div>
+
+          <div className="profile-item">
+            <label>Email</label>
+            <p>{beneficiary.email}</p>
+          </div>
+
+          <div className="profile-item">
+            <label>Mobile Number</label>
+            <p>{beneficiary.mobile}</p>
+          </div>
+
+          <div className="profile-item">
+            <label>Age</label>
+            <p>{beneficiary.age}</p>
+          </div>
+
+          <div className="profile-item">
+            <label>Education</label>
+            <p>{beneficiary.education}</p>
+          </div>
+
+          <div className="profile-item full">
+            <label>Address</label>
+            <p>{beneficiary.address}</p>
+          </div>
+
+          <div className="profile-item full">
+            <label>Help Provided</label>
+            <p>{beneficiary.help}</p>
+          </div>
+
+          <div className="profile-item full">
+            <label>Status</label>
+            <p className={`status ${beneficiary.status.toLowerCase()}`}>
+              {beneficiary.status}
+            </p>
+          </div>
+
+        </div>
+
+        <div className="button-group">
+
+          <button
+            className="close-btn"
+            onClick={onClose}
+          >
             Close
           </button>
+
         </div>
 
       </div>

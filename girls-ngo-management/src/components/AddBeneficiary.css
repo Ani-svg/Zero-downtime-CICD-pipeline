@@ -1,0 +1,59 @@
+.add-beneficiary-page{
+    padding:30px;
+    font-family:"Poppins",sans-serif;
+}
+
+.add-beneficiary-page h1{
+    margin-bottom:25px;
+    color:#333;
+}
+
+.beneficiary-container{
+    display:flex;
+    gap:30px;
+}
+
+.steps{
+    width:230px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    overflow:hidden;
+    height:fit-content;
+}
+
+.step{
+    padding:22px;
+    border-left:4px solid transparent;
+    cursor:pointer;
+    font-weight:500;
+    transition:.3s;
+}
+
+.step.active{
+    border-left:4px solid #ff6b6b;
+    background:#fff3f3;
+    color:#ff6b6b;
+}
+
+.form-container{
+    flex:1;
+}
+
+@media(max-width:900px){
+
+.beneficiary-container{
+    flex-direction:column;
+}
+
+.steps{
+    width:100%;
+    display:flex;
+}
+
+.step{
+    flex:1;
+    text-align:center;
+}
+
+}

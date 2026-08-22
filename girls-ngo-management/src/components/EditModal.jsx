@@ -1,21 +1,34 @@
 import { useState, useEffect } from "react";
+import "./EditModal.css";
 
-function EditModal({
-  open,
-  beneficiary,
-  beneficiaries,
-  setBeneficiaries,
-  onClose,
-}) {
-  const [formData, setFormData] = useState({});
+function EditModal({ beneficiary, onClose, onSave }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    mentor: "",
+    email: "",
+    mobile: "",
+    age: "",
+    address: "",
+    education: "",
+    help: "",
+    status: "Active",
+  });
 
   useEffect(() => {
     if (beneficiary) {
-      setFormData(beneficiary);
+      setFormData({
+        name: beneficiary.name || "",
+        mentor: beneficiary.mentor || "",
+        email: beneficiary.email || "",
+        mobile: beneficiary.mobile || "",
+        age: beneficiary.age || "",
+        address: beneficiary.address || "",
+        education: beneficiary.education || "",
+        help: beneficiary.help || "",
+        status: beneficiary.status || "Active",
+      });
     }
   }, [beneficiary]);
-
-  if (!open || !beneficiary) return null;
 
   const handleChange = (e) => {
     setFormData({
@@ -24,95 +37,153 @@ function EditModal({
     });
   };
 
-  const saveChanges = () => {
-    const updated = beneficiaries.map((b) =>
-      b.id === formData.id ? formData : b
-    );
+  const handleSave = () => {
 
-    setBeneficiaries(updated);
-    onClose();
-  };
+  const confirmSave = window.confirm(
+    "Are you sure you want to save the changes?"
+  );
+
+  if (!confirmSave) return;
+
+  onSave(formData);
+  onClose();
+
+};
+  
+
+  if (!beneficiary) return null;
 
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div
+      className="modal-overlay"
+      onClick={onClose}
+    >
+      <div
+        className="edit-modal"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h1 className="modal-title">
+          Women For Girls NGO
+        </h1>
 
-        <h2>Edit Beneficiary</h2>
+        <p className="modal-subtitle">
+          Edit Beneficiary Details
+        </p>
 
-        <input
-          name="name"
-          placeholder="Name"
-          value={formData.name || ""}
-          onChange={handleChange}
-        />
+        <div className="edit-form">
 
-        <input
-          name="mentor"
-          placeholder="Mentor Name"
-          value={formData.mentor || ""}
-          onChange={handleChange}
-        />
+          <div className="form-group">
+            <label>Beneficiary Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          name="email"
-          placeholder="Email"
-          value={formData.email || ""}
-          onChange={handleChange}
-        />
+          <div className="form-group">
+            <label>Mentor Name</label>
+            <input
+              type="text"
+              name="mentor"
+              value={formData.mentor}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          name="age"
-          placeholder="Age"
-          value={formData.age || ""}
-          onChange={handleChange}
-        />
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          name="address"
-          placeholder="Address"
-          value={formData.address || ""}
-          onChange={handleChange}
-        />
+          <div className="form-group">
+            <label>Mobile</label>
+            <input
+              type="text"
+              name="mobile"
+              value={formData.mobile}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          name="mobile"
-          placeholder="Mobile Number"
-          value={formData.mobile || ""}
-          onChange={handleChange}
-        />
+          <div className="form-group">
+            <label>Age</label>
+            <input
+              type="number"
+              name="age"
+              value={formData.age}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          name="education"
-          placeholder="Education"
-          value={formData.education || ""}
-          onChange={handleChange}
-        />
+          <div className="form-group">
+            <label>Education</label>
+            <input
+              type="text"
+              name="education"
+              value={formData.education}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          name="help"
-          placeholder="Help Provided"
-          value={formData.help || ""}
-          onChange={handleChange}
-        />
+          <div className="form-group full">
+            <label>Address</label>
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+            />
+          </div>
 
-        <select
-          name="status"
-          value={formData.status || "Active"}
-          onChange={handleChange}
-        >
-          <option value="Active">Active</option>
-          <option value="Inactive">Inactive</option>
-          <option value="Pending">Pending</option>
-        </select>
+          <div className="form-group full">
+            <label>Help Provided</label>
+            <textarea
+              rows="3"
+              name="help"
+              value={formData.help}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div className="modal-buttons">
-          <button className="save" onClick={saveChanges}>
-            Save
+          <div className="form-group full">
+            <label>Status</label>
+
+            <select
+              name="status"
+              value={formData.status}
+              onChange={handleChange}
+            >
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+              <option value="Pending">Pending</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div className="button-group">
+
+          <button
+            className="save-btn"
+            onClick={handleSave}
+          >
+            Save Changes
           </button>
 
-          <button className="cancel" onClick={onClose}>
+          <button
+            className="cancel-btn"
+            onClick={onClose}
+          >
             Cancel
           </button>
+
         </div>
 
       </div>

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Login.css";
+
 import logo from "../assets/logo.png";
+import background from "../assets/login-bg.png";
 
 function Login() {
   const navigate = useNavigate();
@@ -9,7 +11,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
+  const login = () => {
     if (email === "admin@gmail.com" && password === "admin123") {
       navigate("/dashboard");
     } else {
@@ -18,24 +20,31 @@ function Login() {
   };
 
   return (
-    <div className="login-page">
+    <div
+      className="login-page"
+      style={{
+       backgroundImage: `linear-gradient(rgba(255,255,255,0.25), rgba(255,240,240,0.25)), url(${background})`,
+      }}
+    >
       <div className="login-card">
 
-        {/* Logo */}
-        <div className="logo-wrapper">
-          <img src={logo} alt="Women For Girls" className="logo" />
-        </div>
+        <img
+          src={logo}
+          alt="Women For Girls"
+          className="login-logo"
+        />
 
-        {/* Title */}
-        <h1>Welcome to Women For Girls</h1>
+        <h1 className="login-title">
+          Welcome to Women For Girls
+        </h1>
 
-        <p className="subtitle">
+        <p className="login-subtitle">
           Sign in to access the care platform
         </p>
 
-        {/* Email */}
         <div className="input-group">
           <label>Username</label>
+
           <input
             type="email"
             placeholder="you@mentorhub.app"
@@ -44,19 +53,21 @@ function Login() {
           />
         </div>
 
-        {/* Password */}
         <div className="input-group">
           <label>Password</label>
+
           <input
             type="password"
-            placeholder="********"
+            placeholder="••••••••"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
-        {/* Button */}
-        <button className="signin-btn" onClick={handleLogin}>
+        <button
+          className="login-btn"
+          onClick={login}
+        >
           Sign in
         </button>
 

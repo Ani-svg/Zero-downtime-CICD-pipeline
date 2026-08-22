@@ -1,0 +1,74 @@
+.search-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin: 25px 0;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px 15px;
+}
+
+.search-icon {
+  color: #888;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.search-input input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+.search-input input::placeholder {
+  color: #999;
+}
+
+.add-beneficiary-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.3s ease;
+}
+
+.add-beneficiary-btn:hover {
+  background: #e55656;
+}
+
+.add-beneficiary-btn svg {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .search-bar-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-beneficiary-btn {
+    justify-content: center;
+    width: 100%;
+  }
+}

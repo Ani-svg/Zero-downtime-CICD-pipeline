@@ -1,0 +1,217 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Base */
+html {
+    /* Root font-size scales gently with viewport width, everything in rem follows it */
+    font-size: clamp(14px, 0.85vw + 10px, 17px);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.mentor-dashboard {
+    min-height: 100vh;
+    background: #f8f7f7;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main Section */
+.dashboard-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+}
+
+/* Top Navbar */
+.topbar {
+    min-height: 4.375rem;
+    background: white;
+    border-bottom: 0.0625rem solid #ececec;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 clamp(1rem, 4vw, 2.5rem);
+}
+
+.admin-button {
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.admin-icon {
+    width: 2rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #f06262;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Content */
+/* Content - Left Aligned */
+.content-area {
+    width: min(92%, 67.5rem);
+    margin-left: clamp(2rem, 5vw, 4rem);
+    margin-right: auto;
+    padding-top: clamp(1.25rem, 4vw, 2.5rem);
+    padding-bottom: clamp(1.25rem, 4vw, 2.5rem);
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+}
+
+.page-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.25rem, 1vw + 1rem, 1.75rem);
+    line-height: 1.2;
+    letter-spacing: 0.0075em;
+    color: #1f2937;
+    margin-bottom: 1.75rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Search + Actions */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.875rem;
+    flex-wrap: wrap;
+}
+
+.toolbar input {
+    width: min(36%, 19.375rem);
+    min-width: 10rem;
+    min-height: 2.375rem;
+    padding: 0.25rem 0.6875rem;
+    border: 0.0625rem solid #f1f1f5;
+    border-radius: 0.625rem;
+    background: #f1f1f5;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.85rem, 0.3vw + 0.75rem, 0.9rem);
+}
+
+.toolbar-actions {
+    display: flex;
+    gap: 0.875rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    width: 2.625rem;
+    aspect-ratio: 1;
+    border: 0.0625rem solid #e5e7eb;
+    border-radius: 0.625rem;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.filter-icon {
+    width: 1.125rem;
+    height: 1.125rem;
+    color: #8f94a3;
+}
+
+.add-button {
+    min-height: 2.625rem;
+    padding: 0 1.25rem;
+    border: none;
+    border-radius: 0.625rem;
+    background: #e25555;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.85rem, 0.3vw + 0.75rem, 0.95rem);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Table Card */
+.table-card {
+    width: 100%;
+    background: white;
+    border: 0.0625rem solid #e5e7eb;
+    border-radius: 1.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Rows */
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1.6fr 2fr 1.6fr 1fr;
+    align-items: center;
+    padding: clamp(1rem, 2.2vw, 1.375rem) clamp(1.5rem, 4vw, 2.75rem);
+    min-width: 50rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.85rem, 0.3vw + 0.75rem, 0.95rem);
+}
+
+.table-header {
+    color: #9ca3af;
+    font-size: clamp(0.75rem, 0.2vw + 0.7rem, 0.875rem);
+    font-weight: 500;
+    border-bottom: 0.0625rem solid #ececec;
+}
+
+.table-card .table-row:not(.table-header) {
+    border-bottom: 0.0625rem solid #f1f1f1;
+}
+
+.table-card .table-row:last-child {
+    border-bottom: none;
+}
+
+
+
+/* Status */
+.status-badge {
+    padding: 0.3125rem 0.875rem;
+    border-radius: 999rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    width: fit-content;
+    font-family: 'Poppins', sans-serif;
+    white-space: nowrap;
+}
+
+.active-status {
+    background: #dff5e7;
+    color: #169c50;
+}
+
+.inactive-status {
+    background: #fde2e2;
+    color: #d94848;
+}
+
+/* Empty State */
+.empty-message {
+    text-align: center;
+    padding: 2.5rem;
+    color: #777;
+    font-family: 'Poppins', sans-serif;
+}

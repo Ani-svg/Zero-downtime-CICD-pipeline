@@ -1,0 +1,328 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+html {
+    font-size: clamp(14px, 0.85vw + 10px, 17px);
+}
+
+/* Apply Poppins globally */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Whole page */
+.girls-list-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8f7f7;
+    font-family: 'Poppins', sans-serif;
+    color: #1f2937;
+}
+
+/* Top admin bar */
+.girls-topbar {
+    min-height: 4.375rem;
+    background-color: #ffffff;
+    border-bottom: 0.0625rem solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 clamp(1rem, 4vw, 3.5rem);
+}
+
+.girls-admin-button {
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.girls-admin-icon {
+    width: 2rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #f05b5b;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main content area */
+.girls-list-container {
+    width: calc(100% - 75px);
+    margin-left: 75px;
+    padding: clamp(2rem, 5vw, 3.5rem) clamp(2rem, 5vw, 4rem);
+    box-sizing: border-box;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+
+/* Stats */
+.girls-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 16vw, 10.625rem);
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.girls-stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.girls-stat-item strong {
+    color: #e05555;
+    font-size: clamp(2rem, 4vw, 2.625rem);
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+}
+
+.girls-stat-item span {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111827;
+    font-family: 'Poppins', sans-serif;
+    white-space: nowrap;
+}
+
+/* Page title */
+.girls-list-header {
+    margin-bottom: 1.375rem;
+}
+
+.girls-list-header h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.35rem, 2.4vw, 1.625rem);
+    font-weight: 700;
+    color: #1f2937;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Search and buttons */
+.girls-toolbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+    margin-bottom: clamp(2rem, 5vw, 3.625rem);
+    flex-wrap: wrap;
+}
+
+.girls-list-page .search-field {
+    width: clamp(16rem, 24vw, 19.5rem);
+    position: relative;
+    min-width: 9rem;
+    flex: 0 0 auto;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: #8b90a0;
+}
+
+.girls-list-page .search-field input {
+    width: 100%;
+    min-height: 2.375rem;
+    padding: 0 0.875rem 0 2.5rem;
+    border: none;
+    border-radius: 0.625rem;
+    background-color: #f1f1f5;
+    color: #374151;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.875rem;
+}
+
+.girls-toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.girls-filter-button {
+    min-height: 2.375rem;
+    padding: 0 0.8125rem;
+    border: 0.0625rem solid #e5e7eb;
+    border-radius: 0.625rem;
+    background-color: #ffffff;
+    color: #4b5563;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.filter-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.add-girl-button {
+    min-height: 2.375rem;
+    padding: 0 1.25rem;
+    border: none;
+    border-radius: 0.625rem;
+    background-color: #e05555;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.add-girl-button:hover {
+    background-color: #d44848;
+}
+
+/* Girl card grid */
+.girls-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    justify-content: start;
+}
+
+.girl-card {
+    min-height: clamp(11rem, 21vw, 14.0625rem);
+    padding: clamp(1rem, 2vw, 1.625rem) clamp(0.75rem, 2vw, 1.25rem);
+    background-color: #ffffff;
+    border-radius: 0.875rem;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.girl-card-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.girl-avatar {
+    width: min(55%, 5.9375rem);
+    aspect-ratio: 1;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    background-color: #f5a4a4;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    flex-shrink: 0;
+}
+
+.girl-name-button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font-size: clamp(0.8rem, 1.2vw, 0.9375rem);
+    font-weight: 700;
+    color: #111827;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    margin-top: 0.25rem;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 1.3em;
+    line-height: 1.3;
+    max-width: 100%;
+}
+
+.girl-name-button:hover {
+    color: #e05555;
+}
+
+.girl-info-grid {
+    margin-top: 0.35rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.girl-info-grid div {
+    margin: 0;
+}
+
+.girl-info-grid .info-label {
+    color: #a0938b;
+    font-size: clamp(0.65rem, 1vw, 0.75rem);
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
+
+.girl-location {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    justify-content: center;
+}
+
+.location-icon {
+    width: 0.75rem;
+    height: 0.75rem;
+    color: #8b90a0;
+    flex-shrink: 0;
+}
+
+.girl-info-grid strong {
+    color: #a08c8b;
+    font-size: clamp(0.65rem, 1vw, 0.75rem);
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.2;
+
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    padding: 2.5rem;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    text-align: center;
+    color: #6b7280;
+    font-family: 'Poppins', sans-serif;
+}
+/* Move page when sidebar expands */
+.sidebar:hover ~ .page-content .girls-list-container {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+}
+
+.sidebar:hover ~ .page-content .girls-topbar {
+    padding-left: 0;
+}
